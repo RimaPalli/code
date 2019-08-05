@@ -1,0 +1,133 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 7px;
+  font-family: Arial, Helvetica, sans-serif;
+ }
+  .ggg{
+            float:left;
+            width:600px;
+            height:550px;
+            background-color: pink;
+            margin-top:20px;
+            margin-bottom:20px;
+            font-size:25px;
+        }   
+}
+</style>
+</head>
+<div>
+	<center><img src="elec.png" style="float:top;width: 1300px;height: 400px"></center>
+</div>
+    
+	<div class="ggg">
+			<div class="value">
+				<h2>Electricity bill clculation</h2>
+				<p>Choose Ampere </p>
+				<select name="Ampere" id="Ampere">
+					<option value="5">5 Ampere</option>
+					<option value="15">15 Ampere</option>
+					<option value="30">30 Ampere</option>
+					<option value="60">60 Ampere</option>
+				</select>
+			</div>
+			<div class="give">
+				<p>Enter previous meter reading: <input class="in" id="previous" type="number" name="pvs" placeholder="Enter your Number..."></p>
+				<p>Enter current meter reading: <input class="in" id="current" type="number" name="cnt" placeholder="Enter your Number..."></p>
+				<input id="present" type="button" value="Calculate" onclick="calc()">
+				<p>Total Consumed Electricity : <span id="electricity">0 unit</span></p>
+				<p>Total Amount: <span id="total">Rs. 0</span></p>
+		    </div>
+	</div>
+	<script type="text/javascript"> 
+		function calc() {
+			var total, electricity;
+			elec = document.getElementById("current").value - document.getElementById("previous").value; 
+			
+            alert("This page is going to proceed!")
+			if (elec < 2 && elec >= 0) {
+				document.getElementById("electricity").innerHTML = elec + " unit";
+			} else if (elec > 2) {
+				document.getElementById("electricity").innerHTML = elec + " units";
+			} else {
+				alert("Enter Right Amount!!!");
+				document.getElementById("electricity").innerHTML = 0 + " unit";
+				document.getElementById("Total").innerHTML = "Rs. " + 0;
+				return;
+			}
+			
+			var select = document.getElementById("Ampere");
+			var selected = select.options[select.selectedIndex].value;
+			
+			if (selected == "5") {
+				if (elec <= 20) {
+					total = elec * 3 + 30;
+				} else if (elec > 20 && elec <= 30) {
+					total = 20 * 3 + (elec-20) * 7 + 50;
+				} else if (elec > 30 && elec <= 50) {
+					total = 20 * 3 + 10 * 7 + (elec-30) * 8.5 + 75;
+				} else if (elec > 50 && elec <= 150) {
+					total = 20 * 3 + 10 * 7 + 20 * 8.5 + (elec-50) * 10 + 100;
+				} else if (elec > 150 && elec <= 250) {
+					total = 20 * 3 + 10 * 7 + 20 * 8.5 + 100 * 10 + (elec-150)*11 + 125;
+				} else if (elec > 250 && elec <= 400) {
+					total = 20 * 3 + 10 * 7 + 20 * 8.5 + 100 * 10 + 100 * 11 + (elec-250) * 12 + 150;
+				} else {
+					total = 20 * 3 + 10 * 7 + 20 * 8.5 + 100 * 10 + 100 * 11 + 150 * 12 + (elec-400) * 13 + 175;
+				}
+			} else if (selected == "15") {
+				if (elec <= 20) {
+					total = elec * 4 + 50;
+				} else if (elec > 20 && elec <= 30) {
+					total = 20 * 4 + (elec-20) * 7 + 75;
+				} else if (elec > 30 && elec <= 50) {
+					total = 20 * 4 + 10 * 7 + (elec-30) * 8.5 + 100;
+				} else if (elec > 50 && elec <= 150) {
+					total = 20 * 4 + 10 * 7 + 20 * 8.5 + (elec-50) * 10 + 125;
+				} else if (elec > 150 && elec <= 250) {
+					total = 20 * 4 + 10 * 7 + 20 * 8.5 + 100 * 10 + (elec-150)*11 + 150;
+				} else if (elec > 250 && elec <= 400) {
+					total = 20 * 4 + 10 * 7 + 20 * 8.5 + 100 * 10 + 100 * 11 + (elec-250) * 12 + 175;
+				} else {
+					total = 20 * 4 + 10 * 7 + 20 * 8.5 + 100 * 10 + 100 * 11 + 150 * 12 + (elec-400) * 13 + 200;
+				}
+			} else if (selected == "30") {
+				if (elec <= 20) {
+					total = elec * 5 + 75;
+				} else if (elec > 20 && elec <= 30) {
+					total = 20 * 5 + (elec-20) * 7 + 100;
+				} else if (elec > 30 && elec <= 50) {
+					total = 20 * 5 + 10 * 7 + (elec-30) * 8.5 + 125;
+				} else if (elec > 50 && elec <= 150) {
+					total = 20 * 5 + 10 * 7 + 20 * 8.5 + (elec-50) * 10 + 150;
+				} else if (elec > 150 && elec <= 250) {
+					total = 20 * 5 + 10 * 7 + 20 * 8.5 + 100 * 10 + (elec-150)*11 + 175;
+				} else if (elec > 250 && elec <= 400) {
+					total = 20 * 5 + 10 * 7 + 20 * 8.5 + 100 * 10 + 100 * 11 + (elec-250) * 12 + 200;
+				} else {
+					total = 20 * 5 + 10 * 7 + 20 * 8.5 + 100 * 10 + 100 * 11 + 150 * 12 + (elec-400) * 13 + 225;
+				}
+			} else if (selected == "60") {
+				if (elec <= 20) {
+					total = elec * 6 + 100;
+				} else if (elec > 20 && elec <= 30) {
+					total = 20 * 6 + (elec-20) * 7 + 125;
+				} else if (elec > 30 && elec <= 50) {
+					total = 20 * 6 + 10 * 7 + (elec-30) * 8.5 + 150;
+				} else if (elec > 50 && elec <= 150) {
+					total = 20 * 6 + 10 * 7 + 20 * 8.5 + (elec-50) * 10 + 175;
+				} else if (elec > 150 && elec <= 250) {
+					total = 20 * 6 + 10 * 7 + 20 * 8.5 + 100 * 10 + (elec-150)*11 + 200;
+				} else if (elec > 250 && elec <= 400) {
+					total = 20 * 6 + 10 * 7 + 20 * 8.5 + 100 * 10 + 100 * 11 + (elec-250) * 12 + 225;
+				} else {
+					total = 20 * 6 + 10 * 7 + 20 * 8.5 + 100 * 10 + 100 * 11 + 150 * 12 + (elec-400) * 13 + 250;
+				}
+			}
+			document.getElementById("total").innerHTML = "Rs. " + total;
+		}
+	</script>
+</body>
+</html>
